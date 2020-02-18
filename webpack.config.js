@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',
@@ -13,6 +14,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Davies Base',
     }),
+    new VueLoaderPlugin()
   ],
   output: {
     filename: 'bundle.js',
@@ -31,6 +33,13 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           'file-loader',
+        ],
+      },
+      {
+        test: /\.vue$/,
+        // loader: 'vue-loader'
+        use: [
+          'vue-loader',
         ],
       },
     ],
