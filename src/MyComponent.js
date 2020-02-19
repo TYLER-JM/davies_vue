@@ -9,4 +9,4 @@ export default Vue.component('button-counter', {
   template: '<button v-on:click="count++">You have clicked {{ count }} times.</button>'
 })
 
-// new Vue({el: `#app`});
+new Vue({el: `#app`});
