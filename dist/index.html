@@ -11,6 +11,12 @@
     <button-counter></button-counter>
     <p>{{ message }}</p>
     <input v-model="message">
+      <ol>
+        <li v-for="character in characters">
+          {{ character.first_name }}
+          {{ character.last_name }}
+        </li>
+      </ol>
   </div>
   <div id="title"></div>
   <script src="./app.bundle.js"></script>
