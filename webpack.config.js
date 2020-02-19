@@ -8,8 +8,8 @@ module.exports = {
   // entry: './src/index.js',
   entry: {
     app: './src/index.js',
-    component: './src/MyComponent.js',
-    title: './src/theTitle.vue',
+    // component: './src/MyComponent.js',
+    // title: './src/theTitle.vue',
   },
   devServer: {
     contentBase: './dist',
@@ -20,7 +20,7 @@ module.exports = {
     // new HtmlWebpackPlugin({
     //   title: 'Davies Base',
     // }),
-    new VueLoaderPlugin()
+    // new VueLoaderPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
@@ -41,13 +41,13 @@ module.exports = {
           'file-loader',
         ],
       },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-        // use: [
-        //   'vue-loader',
-        // ],
-      },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'vue-loader'
+      //   // use: [
+      //   //   'vue-loader',
+      //   // ],
+      // },
     ],
   },
   resolve: {
