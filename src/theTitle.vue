@@ -6,7 +6,7 @@
 export default {
   data () {
     return {
-      msg: 'Hello World!'
+      msg: 'Hello Vue!'
     }
   }
 }
@@ -14,6 +14,6 @@ export default {
 
 <style>
 .example {
-  color: gray;
+  color: salmon;
 }
 </style>
