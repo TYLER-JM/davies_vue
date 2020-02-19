@@ -1,1 +1,1 @@
-I'm building out a Vue project from scratch. Using Webpacker.
+I'm building out a Vue project from scratch. Using Webpack.
