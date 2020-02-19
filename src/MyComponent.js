@@ -72,17 +72,17 @@ const hardData = [
   }
 ]
 
-let filteredData = [];
-const searchData = (term, data) => {
-  const regex = RegExp('Simon', 'g');
-  filteredData = data.filter(char => regex.test(char.first_name));
-}
-searchData('Simon', hardData);
-
 new Vue({
   el: `#app`,
   data: {
     message: 'Hello User!',
-    characters: filteredData
+    characters: []
+  },
+  methods: {
+    methodSearch() {
+      const regex = RegExp(this.message, 'gi');
+      this.characters = hardData.filter(char => regex.test(char.first_name) || regex.test(char.last_name))
+      console.log('HEY! ', this.message);
+    }
   }
 });

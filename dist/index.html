@@ -9,9 +9,9 @@
 <body>
   <div id="app">
     <button-counter></button-counter>
-    <p>{{ message }}</p>
     <input v-model="message">
-      <ol>
+    <input type="button" v-on:click="methodSearch" value="Search!"/>
+      <ol class="list">
         <li v-for="character in characters">
           {{ character.first_name }}
           {{ character.last_name }}
