@@ -1,23 +1,29 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  // entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    component: './src/MyComponent.js',
+    title: './src/theTitle.vue',
+  },
   devServer: {
     contentBase: './dist',
   },
+  devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Davies Base',
-    }),
+    // new CleanWebpackPlugin(),
+    // new HtmlWebpackPlugin({
+    //   title: 'Davies Base',
+    // }),
     new VueLoaderPlugin()
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -37,11 +43,16 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        // loader: 'vue-loader'
-        use: [
-          'vue-loader',
-        ],
+        loader: 'vue-loader'
+        // use: [
+        //   'vue-loader',
+        // ],
       },
     ],
-  }
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
 }
