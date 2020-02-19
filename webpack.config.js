@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',
   // entry: './src/index.js',
   entry: {
-    app: './src/index.js',
+    // app: './src/index.js',
     component: './src/MyComponent.js',
     // title: './src/theTitle.vue',
   },
