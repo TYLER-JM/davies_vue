@@ -1,13 +1,5 @@
 import Vue from 'vue';
-
-export default Vue.component('button-counter', {
-  data: function() {
-    return {
-      count: 0
-    }
-  },
-  template: '<button v-on:click="count++">You have clicked {{ count }} times.</button>'
-})
+import './style.css';
 
 const hardData = [
   {
@@ -82,7 +74,6 @@ new Vue({
     methodSearch() {
       const regex = RegExp(this.message, 'gi');
       this.characters = hardData.filter(char => regex.test(char.first_name) || regex.test(char.last_name))
-      console.log('HEY! ', this.message);
     }
   }
 });
