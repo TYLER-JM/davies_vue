@@ -10,8 +10,9 @@
   <div id="app">
     <input v-model="message">
     <input type="button" v-on:click="methodSearch" value="Search!" />
-    <input v-model="first_name" >
-    <input v-model="last_name" >
+    <input v-model="first_name" placeholder="first name">
+    <input v-model="last_name" placeholder="last name">
+    <input v-model="novel" placeholder="novel">
     <input type="button" v-on:click="addCharacter" value="Add!" />
       <ol class="list">
         <li v-for="character in display">
