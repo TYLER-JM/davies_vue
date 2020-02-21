@@ -8,7 +8,7 @@ function component() {
   elem.setAttribute('id', 'app');
   elem.classList.add('title');
 
-  return elem
+  return elem;
 }
 
 
