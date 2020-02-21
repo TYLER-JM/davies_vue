@@ -66,13 +66,19 @@ const hardData = [
     last_name: 'Hullah',
   },
 ];
+const sendAlong = {
+  first_name: 'Greg',
+  last_name: 'Hjallmerson',
+};
 
-new Vue({
+const app = new Vue({
   el: '#app',
   data: {
     message: 'Hello User!',
     display: [],
     characters: [],
+    first_name: '',
+    last_name: '',
   },
   mounted() {
     axios
@@ -85,6 +91,11 @@ new Vue({
       this.display = this.characters.filter(
         (char) => regex.test(char.first_name) || regex.test(char.last_name),
       );
+    },
+    addCharacter() {
+      axios
+        .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(sendAlong))
+        .then((res) => console.log(res.data));
     },
   },
 });
