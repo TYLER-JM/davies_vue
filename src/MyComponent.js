@@ -94,8 +94,9 @@ const app = new Vue({
     },
     addCharacter() {
       axios
-        .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(sendAlong))
-        .then((res) => console.log(res.data));
+        .post('http://localhost/davies_characters/index.php/characters/add', { first_name: this.first_name, last_name: this.last_name })
+        .then((res) => console.log(res.data.first_name))
+        .catch((err) => console.log('the error: ', err));
     },
   },
 });
