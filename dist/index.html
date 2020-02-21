@@ -11,7 +11,7 @@
     <input v-model="message">
     <input type="button" v-on:click="methodSearch" value="Search!"/>
       <ol class="list">
-        <li v-for="character in characters">
+        <li v-for="character in display">
           {{ character.first_name }}
           {{ character.last_name }}
         </li>
