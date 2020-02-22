@@ -14,6 +14,7 @@ const app = new Vue({
     first_name: '',
     last_name: '',
     novel: '',
+    year_published: 0,
   },
   mounted() {
     axios
@@ -32,9 +33,10 @@ const app = new Vue({
         first_name: this.first_name,
         last_name: this.last_name,
         novel: this.novel,
+        year_published: this.year_published,
       };
       axios
-        .post('http://localhost/davies_characters/index.php/characters/add', data)
+        .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(data))
         .then((res) => console.log(res.data))
         .catch((err) => console.log('the error: ', err));
     },
