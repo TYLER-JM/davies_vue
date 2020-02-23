@@ -4,7 +4,6 @@ import Vue from 'vue';
 import './style.css';
 import axios from 'axios';
 
-
 const app = new Vue({
   el: '#app',
   data: {
