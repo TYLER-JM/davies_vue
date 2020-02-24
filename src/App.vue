@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <button v-on:click="changeView">Staight change</button>
     <TheHeader @changeView="changeView"/>
     <component v-bind:is="activeComponent"></component>
   </div>
@@ -19,15 +18,15 @@ export default {
   },
   data() {
     return {
-      activeComponent: TheSearchForm
+      activeComponent: 'TheSearchForm'
     };
   },
   methods: {
-    changeView() {
+    changeView(form) {
       console.log("you clicked me! ");
-      this.activeComponent === TheAddForm
-        ? this.activeComponent === TheSearchForm
-        : this.activeComponent === TheAddForm;
+      this.activeComponent === 'TheAddForm'
+        ? this.activeComponent = form
+        : this.activeComponent = form;
     }
   }
 }
