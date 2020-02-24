@@ -2,7 +2,6 @@
   <div class="add-form">
     <h3>hey add stuff!</h3>
     <CustomInput/>
-    <!--custom input goes here-->
   </div>
 </template>
 
