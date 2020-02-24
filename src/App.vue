@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <TheHeader @changeView="changeView"/>
+    <TheHeader
+      @changeView="changeView"
+      v-bind:currentView='activeComponent'
+    />
     <component v-bind:is="activeComponent"></component>
   </div>
 </template>
