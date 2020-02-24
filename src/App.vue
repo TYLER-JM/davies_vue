@@ -1,22 +1,35 @@
 <template>
   <div id="app">
-    <h1>Davies Vue 2.0!</h1>
-    <TheAddForm/>
+    <button v-on:click="changeView">Staight change</button>
+    <TheHeader @changeView="changeView"/>
+    <component v-bind:is="activeComponent"></component>
   </div>
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue';
 import TheAddForm from './components/TheAddForm.vue';
+import TheSearchForm from './components/TheSearchForm.vue';
 
 export default {
   components: {
-    TheAddForm
+    TheHeader,
+    TheAddForm,
+    TheSearchForm
   },
   data() {
     return {
-      message: 'Hello Changes!'
+      activeComponent: TheSearchForm
     };
   },
+  methods: {
+    changeView() {
+      console.log("you clicked me! ");
+      this.activeComponent === TheAddForm
+        ? this.activeComponent === TheSearchForm
+        : this.activeComponent === TheAddForm;
+    }
+  }
 }
 </script>
 
