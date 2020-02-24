@@ -12,3 +12,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  li {
+      color: #32adff;
+  }
+</style>

@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     changeView(form) {
-      console.log("you clicked me! ");
       this.activeComponent === 'TheAddForm'
         ? this.activeComponent = form
         : this.activeComponent = form;
@@ -44,7 +43,6 @@ export default {
   font-style: normal;
 }
 #app {
-  background-color: bisque;
   font-family: 'Quicksand', sans-serif;
 }
 </style>

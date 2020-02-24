@@ -59,6 +59,6 @@ export default {
 
 <style scoped>
   .custom-input {
-    color: red;
+    color: #32adff;
   }
 </style>
