@@ -1,15 +1,23 @@
 <template>
-  <div>
-    <label for="first_name">First Name</label>
-    <input v-model="first_name" class="custom-input" type="text" placeholder="first name" name="first_name"/>
-    <label for="last_name">Last Name</label>
-    <input v-model="last_name" class="custom-input" type="text" placeholder="last name" name="last_name"/>
-    <label for="novel">Novel</label>
-    <input v-model="novel" class="custom-input" type="text" placeholder="Novel they are in" name="novel"/>
-    <label for="year_published">Year Published</label>
-    <input v-model="year_published" class="custom-input" type="number" placeholder="year published" name="year_published"/>
+  <fieldset class="add-form">
+    <div>
+      <label for="first_name">First Name</label>
+      <input v-model="first_name" class="custom-input" type="text" name="first_name"/>
+    </div>
+    <div>
+      <label for="last_name">Last Name</label>
+      <input v-model="last_name" class="custom-input" type="text" name="last_name"/>
+    </div>
+    <div>
+      <label for="novel">Novel</label>
+      <input v-model="novel" class="custom-input" type="text" name="novel"/>
+    </div>
+    <div>
+      <label for="year_published">Year Published</label>
+      <input v-model="year_published" class="custom-input" type="number" name="year_published"/>
+    </div>
     <input type="button" value="submit!" v-on:click="addCharacter"/>
-  </div>
+  </fieldset>
 </template>
 
 <script>
@@ -58,7 +66,18 @@ export default {
 </script>
 
 <style scoped>
-  .custom-input {
-    color: #32adff;
-  }
+.custom-input {
+  color: #32adff;
+}
+.add-form {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  align-items: center;
+}
+.add-form label {
+  display: inline-block;
+  width: 10em;
+}
+
 </style>

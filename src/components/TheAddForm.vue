@@ -1,8 +1,5 @@
 <template>
-  <div class="add-form">
-    <h3>hey add stuff!</h3>
     <CustomInput/>
-  </div>
 </template>
 
 <script>
