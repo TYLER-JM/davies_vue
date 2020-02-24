@@ -8,19 +8,12 @@
 </head>
 <body>
   <div id="app">
-    <input v-model="message">
-    <input type="button" v-on:click="methodSearch" value="Search!" />
-    <input v-model="first_name" placeholder="first name">
-    <input v-model="last_name" placeholder="last name">
-    <input v-model="novel" placeholder="novel">
-    <input v-model="year_published" placeholder="year published">
-    <input type="button" v-on:click="addCharacter" value="Add!" />
-      <ol class="list">
-        <li v-for="character in display">
-          {{ character.first_name }}
-          {{ character.last_name }}
-        </li>
-      </ol>
+    <button
+      v-for="tab in tabs"
+      v-bind:key="tab.name"
+      v-on:click="currentTab = tab"
+    >{{ tab.name }}</button>
+    <component v-bind:is="currentTab.component" class="tab"></component>
   </div>
   <script src="./component.bundle.js"></script>
 </body>
