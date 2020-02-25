@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="search">
   <h3>search for a character</h3>
   <input v-model="searchTerm">
   <input type="button" v-on:click="searchCharacters" value="Search!">
@@ -43,3 +43,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.search {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+</style>
