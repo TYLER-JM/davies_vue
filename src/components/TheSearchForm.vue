@@ -1,8 +1,8 @@
 <template>
 <div class="search">
-  <h3>search for a character</h3>
-  <input v-model="searchTerm">
-  <input type="button" v-on:click="searchCharacters" value="Search!">
+  <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
+  <!-- <input class="search__button" type="button" v-on:click="searchCharacters" value="Search!"> -->
+  <button class="search__button" v-on:click="searchCharacters">Search!</button>
   <ol>
     <SearchFormResult
       v-for="character in characters"
@@ -49,5 +49,14 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.search__input {
+  font-size: 1.4em;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  text-align: center;
+  border: none;
+  margin-bottom: 0.5em;
+  border-bottom: 1.5px solid rgb(50, 173, 255);
+;
 }
 </style>

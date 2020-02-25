@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      activeComponent: 'TheAddForm'
+      activeComponent: 'TheSearchForm'
     };
   },
   methods: {
@@ -44,5 +44,17 @@ export default {
 }
 #app {
   font-family: 'Quicksand', sans-serif;
+}
+button {
+  border: none;
+  background-color: aliceblue;
+  height: 2em;
+  width: 5em;
+}
+input::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder {
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
 </style>
