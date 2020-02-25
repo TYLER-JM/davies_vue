@@ -16,6 +16,31 @@
       <label for="year_published">Year Published</label>
       <input v-model="year_published" class="custom-input" type="number" name="year_published"/>
     </div>
+    <div>
+      <label for="about">About</label>
+      <textarea v-model="about" class="custom-input" name="about"/>
+    </div>
+    <h2>optional</h2>
+    <div>
+      <label for="hometown">Hometown</label>
+      <input v-model="hometown" class="custom-input" type="text" name="hometown"/>
+    </div>
+    <div>
+      <label for="birth_name">Birth Name</label>
+      <input v-model="birth_name" class="custom-input" type="text" name="birth_name"/>
+    </div>
+    <div>
+      <label for="nick_name">Nick Name</label>
+      <input v-model="nick_name" class="custom-input" type="text" name="nick_name"/>
+    </div>
+    <div>
+      <label for="birth_date">Year of Birth</label>
+      <input v-model="birth_year" class="custom-input" type="text" name="birth_date"/>
+    </div>
+    <div>
+      <label for="death_date">Year of Death</label>
+      <input v-model="death_year" class="custom-input" type="text" name="death_date"/>
+    </div>
     <input type="button" value="submit!" v-on:click="addCharacter"/>
   </fieldset>
 </template>
@@ -36,15 +61,31 @@ export default {
       last_name: '',
       novel: '',
       year_published: null,
+      about: '',
+      birth_name: null,
+      nick_name: null,
+      hometown: null,
+      birth_year: null,
+      death_year: null,
     }
   },
   methods: {
     addCharacter() {
       const data = {
-        first_name: this.first_name,
-        last_name: this.last_name,
-        novel: this.novel,
-        year_published: this.year_published,
+        person: {
+          first_name: this.first_name,
+          last_name: this.last_name,
+          about: this.about,
+          birth_name: this.birth_name,
+          nick_name: this.nick_name,
+          hometown: this.hometown,
+          birth_year: this.birth_year,
+          death_year: this.death_year
+        },
+        novel: {
+          title: this.novel,
+          year_published: this.year_published
+        }
       };
       axios
         .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(data))
@@ -55,9 +96,7 @@ export default {
   computed: {
     listeners () {
       return {
-        // Pass all component listeners directly to input
         ...this.$listeners,
-        // Override input listener to work with v-model
         input: event => this.$emit('input', event.target.value)
       }
     }

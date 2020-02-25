@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      activeComponent: 'TheSearchForm'
+      activeComponent: 'TheAddForm'
     };
   },
   methods: {
