@@ -16,13 +16,13 @@ export default {
 </script>
 
 <style scoped>
-  button {
-    border: none;
-    background-color: aliceblue;
-    height: 2em;
-    width: 5em;
-  }
-  .active {
-    background-color: rgb(173, 212, 247);
-  }
+button {
+  border: none;
+  background-color: aliceblue;
+  height: 2em;
+  width: 5em;
+}
+.active {
+  background-color: rgb(173, 212, 247);
+}
 </style>
