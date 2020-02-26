@@ -1,39 +1,50 @@
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',
-  // entry: './src/index.js',
-  entry: {
-    // app: './src/index.js',
-    component: './src/MyComponent.js',
-    // title: './src/theTitle.vue',
-  },
   devServer: {
     contentBase: './dist',
   },
   devtool: 'inline-source-map',
-  plugins: [
-    // new CleanWebpackPlugin(),
-    // new HtmlWebpackPlugin({
-    //   title: 'Davies Base',
-    // }),
-    // new VueLoaderPlugin()
-  ],
+  entry: {
+    app: './src/main.js',
+    // component: './src/MyComponent.js',
+    // title: './src/theTitle.vue',
+  },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+    new VueLoaderPlugin(),
+  ],
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
         test: /\.css$/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
         ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -41,13 +52,6 @@ module.exports = {
           'file-loader',
         ],
       },
-      // {
-      //   test: /\.vue$/,
-      //   loader: 'vue-loader'
-      //   // use: [
-      //   //   'vue-loader',
-      //   // ],
-      // },
     ],
   },
   resolve: {
