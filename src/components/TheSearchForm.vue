@@ -1,12 +1,11 @@
 <template>
 <div class="search">
   <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
-  <!-- <input class="search__button" type="button" v-on:click="searchCharacters" value="Search!"> -->
   <button class="search__button" v-on:click="searchCharacters">Search!</button>
   <ol>
     <SearchFormResult
       v-for="character in characters"
-      :key="character.first_name"
+      :key="character.key"
       :character="character"
     />
   </ol>
@@ -16,6 +15,7 @@
 <script>
 import SearchFormResult from './SearchFormResult.vue';
 import axios from 'axios';
+import bbkey from '@tyler-jm/bbkey/lib';
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
   mounted() {
     axios
       .get('http://localhost/davies_characters/')
-      .then((res) => this.allData = res.data);
+      .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
   },
   methods: {
     searchCharacters() {
@@ -39,6 +39,9 @@ export default {
         this.characters = this.allData.filter(
           (char) => regex.test(char.first_name) || regex.test(char.last_name),
         );
+    },
+    keygen() {
+      return bbkey(4);
     }
   }
 }

@@ -6,7 +6,6 @@
       {{ character.last_name }}
     </span>
     <span>{{ character.hometown }}</span>
-    <span>{{ character.birth_name }}</span>
   </li>
 </template>
 
