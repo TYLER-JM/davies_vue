@@ -1,6 +1,6 @@
 <template>
   <li>
-    <button>view</button>
+    <button @click="$emit('changeView', 'TheView')" v-on:click="$emit('selectIndividual', character.id)">view</button>
     <span>
       {{ character.first_name }}
       {{ character.last_name }}
@@ -14,6 +14,13 @@ import customButton from './customButton.vue';
 export default {
   props: {
     character: Object,
+    changeView: Function,
+    selectIndividual: Function
+  },
+  methods: {
+    log(id) {
+      console.log("the id: ", id);
+    }
   }
 }
 </script>

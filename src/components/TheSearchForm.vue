@@ -7,6 +7,8 @@
       v-for="character in characters"
       :key="character.key"
       :character="character"
+      @changeView="changeView"
+      @selectIndividual="selectIndividual"
     />
   </ol>
 </div>
@@ -20,6 +22,10 @@ import bbkey from '@tyler-jm/bbkey/lib';
 export default {
   components: {
     SearchFormResult,
+  },
+  props: {
+    changeView: Function,
+    selectIndividual: Function
   },
   data() {
     return {

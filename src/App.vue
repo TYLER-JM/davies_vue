@@ -4,7 +4,7 @@
       @changeView="changeView"
       v-bind:currentView="activeComponent"
     />
-    <component v-bind:is="activeComponent"></component>
+    <component v-bind:is="activeComponent" v-bind="activeProps"></component>
   </div>
 </template>
 
@@ -12,23 +12,41 @@
 import TheHeader from './components/TheHeader.vue';
 import TheAddForm from './components/TheAddForm.vue';
 import TheSearchForm from './components/TheSearchForm.vue';
+import TheView from './components/TheView.vue';
 
 export default {
   components: {
     TheHeader,
     TheAddForm,
-    TheSearchForm
+    TheSearchForm,
+    TheView
   },
   data() {
     return {
-      activeComponent: 'TheSearchForm'
+      activeComponent: 'TheSearchForm',
+      selectedIndividual: false
     };
+  },
+  computed: {
+    activeProps() {
+      if (this.activeComponent === 'TheSearchForm') {
+        return {
+          changeView: this.changeView,
+          selectIndividual: this.selectIndividual
+        };
+      } else if (this.activeComponent === 'TheView') {
+        return {
+          selected: this.selectedIndividual
+        };
+      }
+    }
   },
   methods: {
     changeView(form) {
-      this.activeComponent === 'TheAddForm'
-        ? this.activeComponent = form
-        : this.activeComponent = form;
+      this.activeComponent = form;
+    },
+    selectIndividual(id) {
+      this.selectedIndividual = id;
     }
   }
 }
