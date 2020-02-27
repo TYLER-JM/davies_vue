@@ -12,7 +12,6 @@ module.exports = {
   entry: {
     app: './src/main.js',
     // component: './src/MyComponent.js',
-    // title: './src/theTitle.vue',
   },
   output: {
     filename: '[name].bundle.js',

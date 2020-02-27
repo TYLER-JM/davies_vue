@@ -4,13 +4,13 @@
     <table class="view">
       <tbody>
         <tr>
-          <td class="view__table-title">Hometown: </td><td class="view__table-desc">{{ stats.hometown }}</td>
-        </tr>
-        <tr>
           <td class="view__table-title">Birth Name: </td><td class="view__table-desc">{{ stats.birth_name || `${stats.first_name} ${stats.last_name}` }}</td>
         </tr>
         <tr>
           <td class="view__table-title">Goes By: </td><td class="view__table-desc">{{ stats.nick_name || stats.first_name}}</td>
+        </tr>
+        <tr>
+          <td class="view__table-title">Hometown: </td><td class="view__table-desc">{{ stats.hometown }}</td>
         </tr>
         <tr>
           <td class="view__table-title">About: </td><td class="view__table-desc">{{ stats.about }}</td>
@@ -70,6 +70,9 @@ export default {
 .view {
   max-width: 600px;
   margin: 0 auto;
+}
+.view tr td {
+  padding-bottom: 5px;
 }
 .view__table-title {
   color: black;
