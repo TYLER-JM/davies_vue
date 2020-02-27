@@ -4,7 +4,7 @@
   <button class="search__button" v-on:click="searchCharacters">Search!</button>
   <ol>
     <SearchFormResult
-      v-for="character in characters"
+      v-for="character in filteredChars"
       :key="character.key"
       :character="character"
       @changeView="changeView"
@@ -38,6 +38,17 @@ export default {
     axios
       .get('http://localhost/davies_characters/')
       .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
+  },
+  computed: {
+    filteredChars() {
+      let filterQuery = this.searchTerm;
+      let chars = [];
+      if (filterQuery) {
+        let regex = RegExp(filterQuery, 'gi');
+        chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name))
+      }
+      return chars
+    }
   },
   methods: {
     searchCharacters() {
