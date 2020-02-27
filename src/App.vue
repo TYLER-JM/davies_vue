@@ -12,14 +12,14 @@
 import TheHeader from './components/TheHeader.vue';
 import TheAddForm from './components/TheAddForm.vue';
 import TheSearchForm from './components/TheSearchForm.vue';
-import TheView from './components/TheView.vue';
+import ViewIndividual from './components/ViewIndividual.vue';
 
 export default {
   components: {
     TheHeader,
     TheAddForm,
     TheSearchForm,
-    TheView
+    ViewIndividual
   },
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
           changeView: this.changeView,
           selectIndividual: this.selectIndividual
         };
-      } else if (this.activeComponent === 'TheView') {
+      } else if (this.activeComponent === 'ViewIndividual') {
         return {
           selected: this.selectedIndividual
         };
