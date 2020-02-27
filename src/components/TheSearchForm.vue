@@ -1,7 +1,6 @@
 <template>
 <div class="search">
   <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
-  <button class="search__button" v-on:click="searchCharacters">Search!</button>
   <ol>
     <SearchFormResult
       v-for="character in filteredChars"
@@ -50,17 +49,6 @@ export default {
       return chars
     }
   },
-  methods: {
-    searchCharacters() {
-      const regex = RegExp(this.searchTerm, 'gi');
-        this.characters = this.allData.filter(
-          (char) => regex.test(char.first_name) || regex.test(char.last_name),
-        );
-    },
-    keygen() {
-      return bbkey(4);
-    }
-  }
 }
 </script>
 
