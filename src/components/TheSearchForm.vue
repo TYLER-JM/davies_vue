@@ -1,10 +1,9 @@
 <template>
 <div class="search">
   <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
-  <button class="search__button" v-on:click="searchCharacters">Search!</button>
   <ol>
     <SearchFormResult
-      v-for="character in characters"
+      v-for="character in filteredChars"
       :key="character.key"
       :character="character"
       @changeView="changeView"
@@ -30,7 +29,6 @@ export default {
   data() {
     return {
       searchTerm: '',
-      characters: [],
       allData: [],
     }
   },
@@ -39,17 +37,20 @@ export default {
       .get('http://localhost/davies_characters/')
       .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
   },
-  methods: {
-    searchCharacters() {
-      const regex = RegExp(this.searchTerm, 'gi');
-        this.characters = this.allData.filter(
-          (char) => regex.test(char.first_name) || regex.test(char.last_name),
-        );
+  computed: {
+    filteredChars() {
+      let filterQuery = this.searchTerm;
+      let chars = [];
+      if (filterQuery) {
+        let regex = RegExp(filterQuery, 'gi');
+        chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name));
+      };
+      return chars;
     },
-    keygen() {
-      return bbkey(4);
+    flipClass() {
+      return this.conditionalClass = this.conditionalClass === 'gray' ? 'white' : 'gray';
     }
-  }
+  },
 }
 </script>
 
