@@ -75,4 +75,5 @@ input:-moz-placeholder,
 input::-moz-placeholder {
   font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
+
 </style>

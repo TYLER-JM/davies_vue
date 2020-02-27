@@ -1,11 +1,9 @@
 <template>
-  <li>
-    <button @click="$emit('changeView', 'ViewIndividual')" v-on:click="$emit('selectIndividual', character.id)">view</button>
+  <li @click="$emit('changeView', 'ViewIndividual')" v-on:click="$emit('selectIndividual', character.id)">
     <span>
       {{ character.first_name }}
       {{ character.last_name }}
     </span>
-    <span>{{ character.hometown }}</span>
   </li>
 </template>
 
@@ -14,7 +12,8 @@ export default {
   props: {
     character: Object,
     changeView: Function,
-    selectIndividual: Function
+    selectIndividual: Function,
+    class: String
   },
   methods: {
     log(id) {
@@ -25,16 +24,24 @@ export default {
 </script>
 
 <style scoped>
-  li {
-      color: #32adff;
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid black;
-  }
-  span {
-    width: 25vw;
-    padding: 0 5px;
-    height: 2em;
-    line-height: 2em;
-  }
+li:hover {
+  cursor: pointer;
+}
+li:nth-child(odd) {
+background-color: aliceblue;
+}
+li:nth-child(even) {
+  background-color: white;
+}
+li {
+    color: #32adff;
+    display: flex;
+    justify-content: center;
+}
+span {
+  width: 25vw;
+  padding: 0 5px;
+  height: 2em;
+  line-height: 2em;
+}
 </style>

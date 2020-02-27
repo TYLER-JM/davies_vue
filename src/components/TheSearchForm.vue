@@ -29,7 +29,6 @@ export default {
   data() {
     return {
       searchTerm: '',
-      characters: [],
       allData: [],
     }
   },
@@ -44,9 +43,12 @@ export default {
       let chars = [];
       if (filterQuery) {
         let regex = RegExp(filterQuery, 'gi');
-        chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name))
-      }
-      return chars
+        chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name));
+      };
+      return chars;
+    },
+    flipClass() {
+      return this.conditionalClass = this.conditionalClass === 'gray' ? 'white' : 'gray';
     }
   },
 }
