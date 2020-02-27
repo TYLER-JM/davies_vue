@@ -38,7 +38,7 @@ li {
     justify-content: center;
 }
 span {
-  width: 25vw;
+  width: 100%;
   padding: 0 5px;
   height: 2em;
   line-height: 2em;

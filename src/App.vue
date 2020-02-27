@@ -55,18 +55,18 @@ export default {
 <style>
  @-webkit-keyframes mouseover {
     0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    100%{background-position:120% 50%}
+    /* 100%{background-position:0% 50%} */
 }
 @-moz-keyframes mouseover {
     0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    100%{background-position:120% 50%}
+    /* 100%{background-position:0% 50%} */
 }
 @keyframes mouseover {
     0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    100%{background-position:120% 50%}
+    /* 100%{background-position:0% 50%} */
 }
 @font-face {
   font-family: 'Quicksand';
@@ -89,11 +89,11 @@ button {
   transition: all 1s;
 }
 button:hover {
-  background: linear-gradient(90deg, #add4f7, aliceblue, #add4f7);
-  background-size: 400% 400%;
-  -webkit-animation: mouseover 3s ease infinite;
-  -moz-animation: mouseover 3s ease infinite;
-  animation: mouseover 3s ease infinite;
+  background: linear-gradient(90deg, #add4f7 50%, aliceblue 55%, #add4f7 60%);
+  background-size: 200% 200%;
+  -webkit-animation: mouseover 1s ease 1;
+  -moz-animation: mouseover 1s ease 1;
+  animation: mouseover 1s ease 1;
 }
 input::-webkit-input-placeholder,
 input:-ms-input-placeholder,

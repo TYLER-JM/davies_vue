@@ -47,9 +47,6 @@ export default {
       };
       return chars;
     },
-    flipClass() {
-      return this.conditionalClass = this.conditionalClass === 'gray' ? 'white' : 'gray';
-    }
   },
 }
 </script>
