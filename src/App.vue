@@ -53,6 +53,21 @@ export default {
 </script>
 
 <style>
+ @-webkit-keyframes mouseover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes mouseover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes mouseover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 @font-face {
   font-family: 'Quicksand';
   src: url('./quicksand-regular-webfont.woff2') format('woff2'),
@@ -60,6 +75,7 @@ export default {
   font-weight: 600;
   font-style: normal;
 }
+
 #app {
   font-family: 'Quicksand', sans-serif;
 }
@@ -67,7 +83,17 @@ button {
   border: none;
   background-color: aliceblue;
   height: 2em;
-  width: 5em;
+  width: 8em;
+  font-family: inherit;
+  font-size: 1.3em;
+  transition: all 1s;
+}
+button:hover {
+  background: linear-gradient(90deg, #add4f7, aliceblue, #add4f7);
+  background-size: 400% 400%;
+  -webkit-animation: mouseover 3s ease infinite;
+  -moz-animation: mouseover 3s ease infinite;
+  animation: mouseover 3s ease infinite;
 }
 input::-webkit-input-placeholder,
 input:-ms-input-placeholder,

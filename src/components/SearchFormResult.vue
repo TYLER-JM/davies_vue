@@ -13,7 +13,6 @@ export default {
     character: Object,
     changeView: Function,
     selectIndividual: Function,
-    class: String
   },
   methods: {
     log(id) {
