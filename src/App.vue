@@ -80,6 +80,7 @@ export default {
   font-family: 'Quicksand', sans-serif;
 }
 button {
+  margin: 1em 0;
   border: none;
   background-color: aliceblue;
   height: 2em;
