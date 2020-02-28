@@ -14,6 +14,6 @@ export default {
 
 <style scoped>
   .add-form {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
 </style>

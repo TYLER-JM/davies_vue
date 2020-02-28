@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  text-align: center;
+  text-transform: capitalize;
+}
 .view {
   max-width: 600px;
   margin: 0 auto;

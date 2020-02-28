@@ -61,9 +61,15 @@ export default {
   font-size: 1.4em;
   font-family: 'Quicksand', Arial, Helvetica, sans-serif;
   text-align: center;
+  margin: 1em 0 0 0;
+  padding: 0;
   border: none;
-  margin-bottom: 0.5em;
   border-bottom: 1.5px solid rgb(50, 173, 255);
-;
+  width: 18rem;
+}
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 </style>

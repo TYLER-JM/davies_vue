@@ -20,7 +20,7 @@
       <label for="about">About</label>
       <textarea v-model="about" class="custom-input" name="about"/>
     </div>
-    <h2>optional</h2>
+    <h2>optional:</h2>
     <div>
       <label for="hometown">Hometown</label>
       <input v-model="hometown" class="custom-input" type="text" name="hometown"/>
@@ -41,7 +41,7 @@
       <label for="death_date">Year of Death</label>
       <input v-model="death_year" class="custom-input" type="text" name="death_date"/>
     </div>
-    <input type="button" value="submit!" v-on:click="addCharacter"/>
+    <button v-on:click="addCharacter">Submit!</button>
   </fieldset>
 </template>
 
@@ -109,6 +109,7 @@ export default {
   color: #32adff;
 }
 .add-form {
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   border: none;

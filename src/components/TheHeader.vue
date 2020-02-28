@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <nav class="header">
     <h1>The Davies Base</h1>
-    <button @click="$emit('changeView', 'TheSearchForm')" v-bind:class="{ active: currentView === 'TheSearchForm' }">browse</button>
-    <button @click="$emit('changeView', 'TheAddForm')" v-bind:class="{ active: currentView === 'TheAddForm' }">add</button>
-  </div>
+    <div>
+      <button @click="$emit('changeView', 'TheSearchForm')" v-bind:class="{ active: currentView === 'TheSearchForm' }">browse</button>
+      <button @click="$emit('changeView', 'TheAddForm')" v-bind:class="{ active: currentView === 'TheAddForm' }">add</button>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -18,5 +20,10 @@ export default {
 <style scoped>
 .active {
   background-color: rgb(173, 212, 247);
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

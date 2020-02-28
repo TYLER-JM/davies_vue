@@ -36,6 +36,7 @@ li {
     color: #32adff;
     display: flex;
     justify-content: center;
+    width: 18rem;
 }
 span {
   width: 100%;
