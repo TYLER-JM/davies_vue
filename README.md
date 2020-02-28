@@ -32,3 +32,4 @@ Davies Base will soon be the definitive searchable database for Characters from 
 - vue-template-compiler
 - html-webpack-plugin
 - clean-webpack-plugin
+- Axios
