@@ -1,9 +1,9 @@
 <template>
 <div class="search">
-  <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
+  <input class="search__input" v-model="searchTerm" placeholder="search for someone..." v-on:change="searchCharacters">
   <ol>
     <SearchFormResult
-      v-for="character in filteredChars"
+      v-for="character in foundChars"
       :key="character.key"
       :character="character"
       @changeView="changeView"
@@ -30,24 +30,34 @@ export default {
     return {
       searchTerm: '',
       allData: [],
+      foundChars: [],
     }
   },
-  mounted() {
-    axios
-      .get('http://localhost/davies_characters/')
-      .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
+  methods: {
+    searchCharacters() {
+      if (this.searchTerm) {
+        axios
+          .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
+          .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
+      }
+    }
   },
-  computed: {
-    filteredChars() {
-      let filterQuery = this.searchTerm;
-      let chars = [];
-      if (filterQuery) {
-        let regex = RegExp(filterQuery, 'gi');
-        chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name));
-      };
-      return chars;
-    },
-  },
+  // mounted() {
+  //   axios
+  //     .get('http://localhost/davies_characters/')
+  //     .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
+  // },
+  // computed: {
+  //   filteredChars() {
+  //     let filterQuery = this.searchTerm;
+  //     let chars = [];
+  //     if (filterQuery) {
+  //       let regex = RegExp(filterQuery, 'gi');
+  //       chars = this.allData.filter(char => regex.test(char.first_name) || regex.test(char.last_name));
+  //     };
+  //     return chars;
+  //   },
+  // },
 }
 </script>
 

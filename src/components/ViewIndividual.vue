@@ -1,31 +1,31 @@
 <template>
   <article>
-    <h2>{{ stats.first_name }} {{ stats.last_name }}</h2>
+    <h2>{{ selected.first_name }} {{ selected.last_name }}</h2>
     <table class="view">
       <tbody>
         <tr>
-          <td class="view__table-title">Birth Name: </td><td class="view__table-desc">{{ stats.birth_name || `${stats.first_name} ${stats.last_name}` }}</td>
+          <td class="view__table-title">Birth Name: </td><td class="view__table-desc">{{ selected.birth_name || `${selected.first_name} ${selected.last_name}` }}</td>
         </tr>
         <tr>
-          <td class="view__table-title">Goes By: </td><td class="view__table-desc">{{ stats.nick_name || stats.first_name}}</td>
+          <td class="view__table-title">Goes By: </td><td class="view__table-desc">{{ selected.nick_name || selected.first_name}}</td>
         </tr>
         <tr>
-          <td class="view__table-title">Hometown: </td><td class="view__table-desc">{{ stats.hometown }}</td>
+          <td class="view__table-title">Hometown: </td><td class="view__table-desc">{{ selected.hometown }}</td>
         </tr>
         <tr>
-          <td class="view__table-title">About: </td><td class="view__table-desc">{{ stats.about }}</td>
+          <td class="view__table-title">About: </td><td class="view__table-desc">{{ selected.about }}</td>
         </tr>
         <tr>
-          <td class="view__table-title">Year of Birth: </td><td class="view__table-desc">{{ stats.birth_year || 'unknown'}}</td>
+          <td class="view__table-title">Year of Birth: </td><td class="view__table-desc">{{ selected.birth_year || 'unknown'}}</td>
         </tr>
         <tr>
-          <td class="view__table-title">Year of Death: </td><td class="view__table-desc">{{ stats.death_year || 'unknown'}}</td>
+          <td class="view__table-title">Year of Death: </td><td class="view__table-desc">{{ selected.death_year || 'unknown'}}</td>
         </tr>
         <tr>
           <td class="view__table-title">Found In: </td>
           <td class="view__table-desc">
             <ViewIndividualNovel
-              v-for="novel in novels"
+              v-for="novel in selected.novels"
               :key="novel.key"
               :title="novel.title"
               :published="novel.year_published"
@@ -46,7 +46,7 @@ export default {
     ViewIndividualNovel,
   },
   props: {
-    selected: String
+    selected: Object
   },
   data() {
     return {
@@ -54,15 +54,15 @@ export default {
       novels: []
     }
   },
-  mounted() {
-    axios
-      .get(`http://localhost/davies_characters/index.php/characters/${this.selected}`)
-      // .then(res => this.stats = {...res.data, key: bbkey(5)});
-      .then(res => {
-        this.stats = res.data;
-        this.novels = res.data.novels.map(x => ({...x, key:bbkey(5)}));
-      });
-  }
+  // mounted() {
+  //   axios
+  //     .get(`http://localhost/davies_characters/index.php/characters/${this.selected}`)
+  //     // .then(res => this.stats = {...res.data, key: bbkey(5)});
+  //     .then(res => {
+  //       this.stats = res.data;
+  //       this.novels = res.data.novels.map(x => ({...x, key:bbkey(5)}));
+  //     });
+  // }
 }
 </script>
 
