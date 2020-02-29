@@ -46,6 +46,7 @@ export default {
       this.activeComponent = form;
     },
     selectIndividual(id) {
+      // this.selectedIndividual = char (where char is the argument)
       this.selectedIndividual = id;
     }
   }
@@ -90,11 +91,11 @@ button {
   transition: all 1s;
 }
 button:hover {
-  background: linear-gradient(90deg, #add4f7 50%, aliceblue 55%, #add4f7 60%);
+  background: linear-gradient(112deg, #add4f7 50%, aliceblue 55%, #add4f7 60%);
   background-size: 200% 200%;
-  -webkit-animation: mouseover 1s ease 1;
-  -moz-animation: mouseover 1s ease 1;
-  animation: mouseover 1s ease 1;
+  -webkit-animation: mouseover 0.6s 1;
+  -moz-animation: mouseover 0.6s 1;
+  animation: mouseover 0.6s 1;
 }
 input::-webkit-input-placeholder,
 input:-ms-input-placeholder,
