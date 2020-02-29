@@ -25,7 +25,7 @@
           <td class="view__table-title">Found In: </td>
           <td class="view__table-desc">
             <ViewIndividualNovel
-              v-for="novel in stats.novels"
+              v-for="novel in novels"
               :key="novel.key"
               :title="novel.title"
               :published="novel.year_published"

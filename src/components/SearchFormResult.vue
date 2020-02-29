@@ -1,4 +1,5 @@
 <template>
+  <!--pass the entire character object rather than just its id-->
   <li @click="$emit('changeView', 'ViewIndividual')" v-on:click="$emit('selectIndividual', character.id)">
     <span>
       {{ character.first_name }}
