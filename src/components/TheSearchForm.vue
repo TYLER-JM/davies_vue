@@ -1,6 +1,7 @@
 <template>
 <div class="search">
-  <input class="search__input" v-model="searchTerm" placeholder="search for someone..." v-on:change="searchCharacters">
+  <!--<input class="search__input" v-model="searchTerm" placeholder="search for someone..." v-on:change="searchCharacters">-->
+  <input class="search__input" v-model="searchTerm" placeholder="search for someone...">
   <ol>
     <SearchFormResult
       v-for="character in foundChars"
@@ -17,6 +18,7 @@
 import SearchFormResult from './SearchFormResult.vue';
 import axios from 'axios';
 import bbkey from '@tyler-jm/bbkey/lib';
+import debounce from 'lodash/debounce';
 
 export default {
   components: {
@@ -33,20 +35,22 @@ export default {
       foundChars: [],
     }
   },
-  methods: {
-    searchCharacters() {
+  watch: {
+    searchTerm() {
       if (this.searchTerm) {
-        axios
-          .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
-          .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
+        this.makeExpensiveCall();
+      } else {
+        this.foundChars = [];
       }
     }
   },
-  // mounted() {
-  //   axios
-  //     .get('http://localhost/davies_characters/')
-  //     .then((res) => this.allData = res.data.map(char => ({...char, key: bbkey(5)})));
-  // },
+  methods: {
+    makeExpensiveCall() {
+        axios
+          .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
+          .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
+    }
+  },
   // computed: {
   //   filteredChars() {
   //     let filterQuery = this.searchTerm;
