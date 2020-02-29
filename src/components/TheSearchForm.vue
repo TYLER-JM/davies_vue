@@ -45,11 +45,18 @@ export default {
     }
   },
   methods: {
-    makeExpensiveCall() {
+    // makeExpensiveCall() {
+    //     axios
+    //       .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
+    //       .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
+    // }
+    makeExpensiveCall: debounce(function () {
+        if (this.searchTerm) {
         axios
           .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
           .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
-    }
+        }
+    }, 500)
   },
   // computed: {
   //   filteredChars() {
