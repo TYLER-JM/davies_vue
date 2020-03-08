@@ -41,7 +41,9 @@
       <label for="death_date">Year of Death</label>
       <input v-model="death_year" class="custom-input" type="text" name="death_date"/>
     </div>
-    <button v-on:click="addCharacter">Submit!</button>
+    <button v-on:click="addCharacter" id="submit-button">Submit!</button>
+    <h3 v-if="success">Success!</h3>
+    <h3 v-if="failure">Please include all required fields</h3>
   </fieldset>
 </template>
 
@@ -67,10 +69,25 @@ export default {
       hometown: null,
       birth_year: null,
       death_year: null,
+
+      success: false,
+      failure: false
     }
   },
   methods: {
-  addCharacter() {
+    addCharacter() {
+      const requiredData = [
+        this.first_name, this.last_name, this.about, this.novel, this.year_published
+      ];
+
+      for (let item of requiredData) {
+        if (!item) {
+          this.failure = true;
+          return 
+        } else {
+          console.log('good');
+        }
+      }
       const data = {
         person: {
           first_name: this.first_name,
@@ -89,8 +106,25 @@ export default {
       };
       axios
         .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(data))
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log('the error: ', err));
+        .then((res) => {
+          console.log(res.data);
+          this.success = true;
+          this.failure = false;
+          this.first_name = '';
+          this.last_name = '';
+          this.novel =  '';
+          this.year_published = '';
+          this.about = '';
+          this.birth_name =  '';
+          this.nick_name =  '';
+          this.hometown = '';
+          this.birth_year = '';
+          this.death_year = '';
+        })
+        .catch((err) => {
+          console.log('the error: ', err);
+          this.failure = true;
+        });
     }
   },
   computed: {
@@ -105,8 +139,21 @@ export default {
 </script>
 
 <style scoped>
+@-webkit-keyframes show-success {
+  0% {background-color: aliceblue}
+  100% {background-color: green}
+}
+@-moz-keyframes show-success {
+  0% {background-color: aliceblue}
+  100% {background-color: green}
+}
+@keyframes show-success {
+  0% {background-color: aliceblue}
+  100% {background-color: green}
+}
 .custom-input {
   color: #32adff;
+  border: 1px solid #ccc;
 }
 .add-form {
   margin-top: 1em;
@@ -119,5 +166,4 @@ export default {
   display: inline-block;
   width: 10em;
 }
-
 </style>

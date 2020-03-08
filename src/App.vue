@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      activeComponent: 'TheSearchForm',
+      activeComponent: 'TheAddForm',
       selectedIndividual: false
     };
   },
@@ -57,17 +57,14 @@ export default {
  @-webkit-keyframes mouseover {
     0%{background-position:0% 50%}
     100%{background-position:120% 50%}
-    /* 100%{background-position:0% 50%} */
 }
 @-moz-keyframes mouseover {
     0%{background-position:0% 50%}
     100%{background-position:120% 50%}
-    /* 100%{background-position:0% 50%} */
 }
 @keyframes mouseover {
     0%{background-position:0% 50%}
     100%{background-position:120% 50%}
-    /* 100%{background-position:0% 50%} */
 }
 @font-face {
   font-family: 'Quicksand';
