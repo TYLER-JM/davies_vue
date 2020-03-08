@@ -70,7 +70,7 @@ export default {
     }
   },
   methods: {
-    addCharacter() {
+  addCharacter() {
       const data = {
         person: {
           first_name: this.first_name,

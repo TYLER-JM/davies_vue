@@ -91,6 +91,7 @@ button {
   transition: all 1s;
 }
 button:hover {
+  cursor: pointer;
   background: linear-gradient(112deg, #add4f7 50%, aliceblue 55%, #add4f7 60%);
   background-size: 200% 200%;
   -webkit-animation: mouseover 0.6s 1;
