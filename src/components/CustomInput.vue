@@ -83,9 +83,8 @@ export default {
       for (let item of requiredData) {
         if (!item) {
           this.failure = true;
+          this.success = false;
           return 
-        } else {
-          console.log('good');
         }
       }
       const data = {
@@ -124,6 +123,7 @@ export default {
         .catch((err) => {
           console.log('the error: ', err);
           this.failure = true;
+          this.success = false;
         });
     }
   },
