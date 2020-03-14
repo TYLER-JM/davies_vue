@@ -54,15 +54,6 @@ export default {
       novels: []
     }
   },
-  // mounted() {
-  //   axios
-  //     .get(`http://localhost/davies_characters/index.php/characters/${this.selected}`)
-  //     // .then(res => this.stats = {...res.data, key: bbkey(5)});
-  //     .then(res => {
-  //       this.stats = res.data;
-  //       this.novels = res.data.novels.map(x => ({...x, key:bbkey(5)}));
-  //     });
-  // }
 }
 </script>
 
