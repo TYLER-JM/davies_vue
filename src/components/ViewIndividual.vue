@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import ViewIndividualNovel from './ViewIndividualNovel.vue';
 import bbkey from '@tyler-jm/bbkey/lib';
 export default {

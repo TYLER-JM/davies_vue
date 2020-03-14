@@ -49,6 +49,7 @@
 
 <script>
 import axios from 'axios';
+import returnURL from '../helpers/returnURL';
 
 export default {
   props: {
@@ -104,7 +105,8 @@ export default {
         }
       };
       axios
-        .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(data))
+        // .post('http://localhost/davies_characters/index.php/characters/add', JSON.stringify(data))
+        .post(`${returnURL()}/add`, JSON.stringify(data))
         .then((res) => {
           console.log(res.data);
           this.success = true;

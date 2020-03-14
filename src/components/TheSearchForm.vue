@@ -17,6 +17,7 @@
 <script>
 import SearchFormResult from './SearchFormResult.vue';
 import axios from 'axios';
+import returnURL from '../helpers/returnURL';
 import bbkey from '@tyler-jm/bbkey/lib';
 import debounce from 'lodash/debounce';
 
@@ -48,7 +49,8 @@ export default {
     makeExpensiveCall: debounce(function () {
         if (this.searchTerm) {
           axios
-            .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
+            // .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
+            .get(`${returnURL()}/search/${this.searchTerm}`)
             .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
         }
     }, 500)
