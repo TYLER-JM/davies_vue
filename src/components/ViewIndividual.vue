@@ -3,8 +3,11 @@
     <h2>{{ selected.first_name }} {{ selected.last_name }}</h2>
     <table class="view">
       <tbody>
-        <tr>
-          <td class="view__table-title">Birth Name: </td><td class="view__table-desc">{{ selected.birth_name || `${selected.first_name} ${selected.last_name}` }}</td>
+        <tr v-if="selected.birth_name">
+          <td class="view__table-title">Birth Name: </td>
+          <td class="view__table-desc">
+            {{ selected.birth_name }}
+          </td>
         </tr>
         <tr>
           <td class="view__table-title">Goes By: </td><td class="view__table-desc">{{ selected.nick_name || selected.first_name}}</td>
@@ -15,11 +18,11 @@
         <tr>
           <td class="view__table-title">About: </td><td class="view__table-desc">{{ selected.about }}</td>
         </tr>
-        <tr>
-          <td class="view__table-title">Year of Birth: </td><td class="view__table-desc">{{ selected.birth_year || 'unknown'}}</td>
+        <tr v-if="selected.birth_year">
+          <td class="view__table-title">Year of Birth: </td><td class="view__table-desc">{{ selected.birth_year}}</td>
         </tr>
-        <tr>
-          <td class="view__table-title">Year of Death: </td><td class="view__table-desc">{{ selected.death_year || 'unknown'}}</td>
+        <tr v-if="selected.death_year">
+          <td class="view__table-title">Year of Death: </td><td class="view__table-desc">{{ selected.death_year}}</td>
         </tr>
         <tr>
           <td class="view__table-title">Found In: </td>

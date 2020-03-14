@@ -49,7 +49,6 @@ export default {
     makeExpensiveCall: debounce(function () {
         if (this.searchTerm) {
           axios
-            // .get(`http://localhost/davies_characters/index.php/characters/search/${this.searchTerm}`)
             .get(`${returnURL()}/search/${this.searchTerm}`)
             .then(res => this.foundChars = res.data.map(char => ({...char, key: bbkey(5)})));
         }
