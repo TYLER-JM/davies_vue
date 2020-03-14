@@ -4,6 +4,7 @@ Davies Base will soon be the definitive searchable database for Characters from 
 
 ## Tech Stack
 - Vue.js (Single File Components)
+- CSS
 - The API is built with CodeIgniter for PHP
 - Webpack, babel
 
