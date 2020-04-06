@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      activeComponent: 'TheAddForm',
+      activeComponent: 'TheSearchForm',
       selectedIndividual: false
     };
   },

@@ -1,1 +1,1 @@
-export default () => 'http://localhost/davies_characters/index.php/characters';
+export default () => 'http://davies_characters.test/index.php/characters';

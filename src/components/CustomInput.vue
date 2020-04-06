@@ -85,7 +85,7 @@ export default {
         if (!item) {
           this.failure = true;
           this.success = false;
-          return 
+          return
         }
       }
       const data = {

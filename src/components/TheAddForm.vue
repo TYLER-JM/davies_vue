@@ -11,9 +11,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-  .add-form {
-    /* text-transform: uppercase; */
-  }
-</style>
